@@ -24,9 +24,6 @@ public abstract class Tweet {
     public abstract Boolean isImportant();
 
 
-
-
-
     public void setMessage(String message) throws TweetTooLongException{
         if (message.length() > 140){
             throw new TweetTooLongException();

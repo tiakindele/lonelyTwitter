@@ -44,6 +44,8 @@ public class LonelyTwitterActivity extends Activity {
 				NormalTweet newTweet = new NormalTweet("Hello");
 				ImportantTweet newTweet2 = new ImportantTweet("hello", new Date());
 
+
+
 				newTweet2.getDate();
 
 				try {
