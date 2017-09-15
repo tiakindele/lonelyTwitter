@@ -7,12 +7,16 @@ import java.util.Date;
  */
 
 public class GreatMood extends Mood {
-
     public GreatMood() {
         super();
     }
 
     public GreatMood(Date date){
         super(date);
+    }
+
+    @Override
+    public String toString() {
+        return ":)";
     }
 }
