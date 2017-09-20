@@ -51,4 +51,9 @@ public abstract class Tweet {
     public void setMood(Mood mood){
         ListOfMoods.add(mood);
     }
+
+    @Override
+    public String toString(){
+        return date.toString() + "|" + message;
+    }
 }
