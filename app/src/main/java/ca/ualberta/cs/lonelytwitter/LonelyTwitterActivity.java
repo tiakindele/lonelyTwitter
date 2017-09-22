@@ -61,6 +61,23 @@ public class LonelyTwitterActivity extends Activity {
 
 			}
 		});
+
+		Button clearButton = (Button) findViewById(R.id.clear);
+
+		clearButton.setOnClickListener(new View.OnClickListener() {
+
+			public void onClick(View v) {
+				setResult(RESULT_OK);
+
+				tweetList.clear();
+
+				adapter.notifyDataSetChanged();
+
+				saveInFile();
+				//finish();
+
+			}
+		});
 	}
 
 	@Override
@@ -107,6 +124,24 @@ public class LonelyTwitterActivity extends Activity {
             out.flush(); //flush output
 
 			fos.close();
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			throw new RuntimeException();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			throw new RuntimeException();
+		}
+	}
+
+	private void clearFile() {
+		try {
+			FileOutputStream fos = openFileOutput(FILENAME,
+					Context.MODE_PRIVATE);
+
+			//FROM https://stackoverflow.com/questions/6994518/how-to-delete-the-content-of-text-file-without-deleting-itself
+			fos.write(("").getBytes());
+			fos.close();
+			
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			throw new RuntimeException();
